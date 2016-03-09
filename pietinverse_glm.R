@@ -14,9 +14,7 @@ datapietin<-read.table("data_pietinverse.txt",header=TRUE,sep="\t",
                          )
 
 library(lme4)
-library()
-library(MASS)
-library(car)
+library(gdata)
 library(visreg)
 
 #this code contains the details of the models used for the analysis of the 
@@ -30,11 +28,14 @@ library(visreg)
 
 prochlo_dat<-datapietin[datapietin$Espece!="Oa" & datapietin$Modalite %in% 
                           c("Temoin","Prochloraze"),]
+prochlo_dat<-drop.levels(prochlo_dat)
 modProchlo<-glm(Prochloraze~ESSAI+Modalite,family=binomial,prochlo_dat)
 summary(modProchlo)
-table(prochlo_dat$Prochloraze,prochlo_dat$Modalite)
-table(prochlo_dat$Prochloraze,prochlo_dat$ESSAI)
+barplot(table(prochlo_dat$Prochloraze,prochlo_dat$Modalite),beside=TRUE)
+barplot(table(prochlo_dat$Prochloraze,prochlo_dat$ESSAI))
 
+barplot(table(prochlo_dat$Modalite,prochlo_dat$Prochloraze),beside=TRUE)
+barplot(table(prochlo_dat$ESSAI,prochlo_dat$Prochloraze),beside=TRUE)
 
 
 
