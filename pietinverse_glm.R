@@ -36,6 +36,12 @@ barplot(table(prochlo_dat$Prochloraze,prochlo_dat$ESSAI))
 
 barplot(table(prochlo_dat$Modalite,prochlo_dat$Prochloraze),beside=TRUE)
 barplot(table(prochlo_dat$ESSAI,prochlo_dat$Prochloraze),beside=TRUE)
+barplot(table(prochlo_dat[prochlo_dat$Modalite=="Prochloraze",]$ESSAI,
+              prochlo_dat[prochlo_dat$Modalite=="Prochloraze",]$Prochloraze),
+        beside=TRUE,main="Traitement Prochloraze")
+barplot(table(prochlo_dat[prochlo_dat$Modalite=="Temoin",]$ESSAI,
+              prochlo_dat[prochlo_dat$Modalite=="Temoin",]$Prochloraze),
+        beside=TRUE,main="Traitement Témoin")
 
 
 
