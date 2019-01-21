@@ -4,15 +4,11 @@
 ###############################################################################
 ###############################################################################
 
-
-#set the right working directory
-setwd("~/work/Rfichiers/Githuber/PietinVerse_data")
-
 #loading the required packages
 library(lme4)
 library(gdata)
 
-datapietin<-read.table("data_pietinverse2.txt",header=TRUE,sep="\t",
+datapietin<-read.table("data/data_pietinverse2.txt",header=TRUE,sep="\t",
                        colClasses = c("numeric","character","numeric",
                                       "factor","factor","factor","factor",
                                       "factor","factor","factor","factor",
